@@ -30,21 +30,18 @@ By Dhruv Malik and Amit Malik.
 
 
 ## static testing run of slither :
-- 
+- didnt returned any major logs apart from the potential bugs of using block.timestamp and the  mutation of the state via the external function contracts.  
 
 
 
 ### 1.RewardsManager : 
     - functions for getting rewards as H20 tokens call `ERC20rewards.claimReward(address account)` (claim reward ) should have the modifier that insures the instantiation of the modifier)  only by the address caller of the above function , thus avoiding the potential version of external state change in the execution.
-    - also before minting there is no  functional check regarding whether the liquidity is successful or not .
+    - also before minting there is no  functional checks about the availablity of the input amount or the sufficient liquidity ,  causing gas inefficient attacks .
+
 
 ### 2. Controller :
-    - having  
-    - 
-   
-        - 
     - VirtualPool : 
-        - swapAB and swapBA should have been similar, 
+        - swapAB and swapBA could  have been similar, and there can be an function sort that will keep the order in check whenever be the corresponding nature of the contracts . 
 
 
 ## 3. VirtualPool:
@@ -54,7 +51,7 @@ By Dhruv Malik and Amit Malik.
 
 ## 4. libraries :
     - UFixedPoint : 
-
+        - some operation like  should have been more efficient in getting the results 
 
 
 
